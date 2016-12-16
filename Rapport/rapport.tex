@@ -1,0 +1,109 @@
+\documentclass[a4paper]{report}
+
+
+\usepackage{geometry}         % marges
+\usepackage[francais]{babel}  % langue
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}         % images
+\usepackage{verbatim}         % texte préformaté
+\usepackage{url}			  % package url (voir bibli)
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\title{Rapport de projet UE Algorithmique et complexité}
+\author{Yann VERON}
+\author{Marvin NURIT}
+\date{12 Décemnbre 2016}
+
+\pagestyle{headings}
+
+\begin{document}
+
+%\setcounter{page}{0} % enlever numéro de page
+\thispagestyle{empty}
+ 
+\begin{minipage}{0.5\linewidth} % permet de faire les deux colonnes pour mettre l'image à droite du texte
+\textbf{Université de Bourgogne}\\ 
+U.F.R. Sciences et Technologies\\
+Département Informatique\\
+Année 2016-2017
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\begin{flushright}
+\includegraphics{ub.jpg}
+\end{flushright}
+
+\end{minipage}
+ 
+ 
+\vspace{5cm}
+ 
+ 
+\begin{center}
+\LARGE Master \\
+\LARGE M1 Informatique\\
+\huge \textbf{RAPPORT DE PROJET}\\
+\huge \textbf{UE\\ Algorithme et Complexité}\\
+\end{center}
+ 
+ 
+\vspace{7cm}
+ 
+ 
+\noindent % permet d'enlever l'indentation du paragraphe
+\textbf{Etudiants  :} Yann Véron et Marvin Nurit \\
+\textbf{Sujet :} Multiplication rapide de grands entiers \\
+
+\tableofcontents
+% --- inserer votre code LaTeX ici ---
+\chapter{Problématique}
+
+  \section{Sujet}
+
+    \subsection{Description générale} %Grande lignes du sujet
+      \paragraph{}
+      Dans ce sujet, il nous est demandé de programmer en langage OCaml la multiplication de grands entier de deux façons différentes, l'algorithme de Karatsuba \cite{KaratsuINRIA} \cite{KaratsuUnivLyon} \cite{KaratsuWiki}  et la Transformée de Fourier Rapide.\\
+      La multiplication de deux entiers de façon "naïve" de taille n se fait avec $n^2$ multiplication, ce qui correspond à une complexité de l'ordre de $O(n)$.
+      \\Cette complexité, et donc le temps d'exécution de cette multiplication peuvent poser problème sur de grands entiers et polynômes.
+      \\C'est pourquoi les deux algorithmes cités précédemment, Fourier et Karatsuba, ont été mis au point.
+	%Description précise de chaque fonction
+      \paragraph{}
+      	\subsection{Multiplication par l'algorithme de Karatsuba} 
+      	Anatoli Alekseïevitch Karatsuba est un mathématicien Russe ayant obtenus plusieurs récompenses pour ses travaux sur l'algorithmique Multiprécision, plus particulièrement la multiplication.
+      	\\ Il donne ainsi son nom au premier algorithme de multiplication rapide, l'algorithme de Karatsuba, à démontré un théorème d'approximation des séries de Fourier, et amélioré le théorème de Moore sur la machine de Moore.
+      	\\ Dans notre cas, c'est son algorithme de multiplication rapide qui nous intéresse.
+      	\\ Comme dit précédemment, la multiplication "naïve" à une complexité d'ordre $O(n)$, tandis que l'algorithme de Karatsuba à une complexité d'ordre au plus $n^{log_2 3}$ $\approx$ $n^{1.585}$, comme nous le verrons prochainement.
+      	\\ L'algorithme de Karatsuba est de type "Divide and Conquer", ou "Diviser pour régner".
+      	\\ L'objectif est de décomposer les deux entiers en deux plus petit (dont la taille est approximativement égale à la moitié de la taille des deux grands entiers), puis de faire la multiplication des ces deux plus petits entiers.
+      	\\ La méthode de Karatsuba permet de faire cette dernière multiplication en 3 produits au lieu de 4 de façon naïve. Pour de plus grands entiers il suffira d'appliquer récursivement cette méthode.
+      \paragraph{}  
+    	\subsection{Multiplication par la transformée de Fourier Rapide} 
+
+      
+\chapter{Choix d'implémentation}
+
+  \section{Algorithmes}   
+ 	\paragraph{}
+      	\subsection{Implémentation des polynômes}
+      	Nous avons choisi de représenter nos grands entiers en base $B$ en polynômes.
+      	\\ Ces polynômes seront représentés en OCaml sous la forme de listes, grâce au module List implémenté dans ce langage.
+      	\\ Les entiers seront représentés bit de poids faible en premier pour faciliter la manipulation.
+      	\\ Ainsi un entier 1234 en base 10, dont le polynômes vaut $1\times{10^3}+2\times{10^2}+3\times{10^1}+4\times{10^0}$ sera représenté par la liste $L=[4;3;2;1]$.
+      	\\ De même pour une base 16, l'entier 26, codé de manière hexadécimale 1A, et dont le polynôme vaut $1\times16^1+11\times16^0$ sera représenté par la liste $L=[11,1]$.
+      	\\ Pour cette conversion, et l'utilisation des listes dans les fonctions suivantes il faudra de ce fait passer en paramètre la base sur laquelle le polynôme à été créé, la liste pouvant représenter différents polynômes différents selon la base.
+      	\\ La reconstruction de l'entier depuis la liste fonctionne de la même manière :
+      	\\ En fonction de la base passée en paramètre on additionne les membres du polynôme que l'on multiplie par la base à la puissance adéquate.
+      	\\Pour plus de facilité d'utilisation, il aurait sans doute été possible de mettre en premier la base dans laquelle la liste à été créé.
+      \paragraph{}
+      	\subsection{Algorithme de Karatsuba} 
+      	
+      \paragraph{}  
+    	\subsection{Transformée de Fourier Rapide} 
+    	
+      \paragraph{}
+       
+\bibliographystyle{plain} % Le style est mis entre accolades.
+\bibliography{bibli} % mon fichier de base de données s'appelle bibli.bib
+\end{document}

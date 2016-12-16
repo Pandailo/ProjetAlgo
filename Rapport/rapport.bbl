@@ -1,0 +1,17 @@
+\begin{thebibliography}{1}
+
+\bibitem{KaratsuINRIA}
+Multiplication rapide.
+\newblock \url{http://algo.inria.fr/bostan/mpri/Cours2.pdf}.
+
+\bibitem{KaratsuWiki}
+Algorithme de karatsuba.
+\newblock \url{https://fr.wikipedia.org/wiki/Algorithme_de_Karatsuba}, 2016.
+
+\bibitem{KaratsuUnivLyon}
+Xavier-Francois Roblot.
+\newblock Arithmétique rapide, multiplication rapide par la méthode de
+  karatsuba.
+\newblock \url{http://math.univ-lyon1.fr/~roblot/resources/ens_partie_2.pdf}.
+
+\end{thebibliography}

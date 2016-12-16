@@ -1,0 +1,18 @@
+\relax 
+\catcode `:\active 
+\catcode `;\active 
+\catcode `!\active 
+\catcode `?\active 
+\select@language{french}
+\@writefile{toc}{\select@language{french}}
+\@writefile{lof}{\select@language{french}}
+\@writefile{lot}{\select@language{french}}
+\citation{KaratsuWiki}
+\bibstyle{plain}
+\bibdata{bibli}
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Probl\IeC {\'e}matique}{2}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Sujet}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.1}Description g\IeC {\'e}n\IeC {\'e}rale}{2}}
+\@writefile{toc}{\contentsline {paragraph}{}{2}}
