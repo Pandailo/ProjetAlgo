@@ -165,15 +165,15 @@ let rec karatsuba p q base=
 
 
 (* ======================================================== 
- * Pars d'un entier pour constituer deux polynômes (TODO)
+ * Pars d'un rationnel pour constituer deux polynômes (TODO)
  * ========================================================*)
- (*let rec poly_rat_ a l1 l2 base = 
+ let rec poly_rat_ a l1 l2 base = 
  	if 0=a
 	then l1 l2
 	else if (a>0) 
 		then (poly_rat_ (a/base) (l1@[a mod base]) l2 base)
-	else poly	_rat (a*base) l1 (l2@[(a*base) mod base]) base;;
-*)
+	else poly_rat (a*base) l1 (l2@[(a*base) mod base]) base;;
+
 (* ========================================================
  * Divise deux polynome, retourne le quotient et le reste
  * ========================================================*)
@@ -217,5 +217,5 @@ let polyD=polynome 100 10;;
 let divi=poly_div polyC polyD base;;
 let modu=poly_mod polyC polyD base;;
 let verif=poly_add (karatsuba polyD divi base) modu base;;
-let tet=pgcd [10] [5] 10;;
+let tet=poly_rat_ 12.5 [] [] 10;;
 
