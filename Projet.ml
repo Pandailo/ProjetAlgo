@@ -171,7 +171,7 @@ let rec karatsuba p q base=
  	if 0=a
 	then l1 l2
 	else if (a>1) 
-		then (poly_rat_ (a-(a/base *base)) (l1@[a mod base]) l2 base)
+		then (poly_rat_ (a/base) (l1@a-(floor(a/base *base))) l2 base)
 	else poly_rat (a*base) l1 (l2@[(a*base) mod base]) base;;
 
 (* ========================================================
