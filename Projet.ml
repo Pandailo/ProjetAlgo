@@ -157,7 +157,23 @@ let rec karatsuba p q base=
                 let a1 = karatsuba p2 q2 base in
                 let a2 = poly_sub (poly_sub (karatsuba (poly_add p1 p2 base) (poly_add q1 q2 base) base) a0 base) a1 base in
                 (poly_add (poly_add (poly_mult_zero a0 (polynome (pow base (2*k)) base)) (poly_mult_zero a2 (polynome (pow base k) base)) base) a1 base);;
+                
+                
+(* ======================================================== 
+ * Nombres rationnels 
+ * ========================================================*)
 
+
+(* ======================================================== 
+ * Pars d'un entier pour constituer deux polynômes (TODO)
+ * ========================================================*)
+ (*let rec poly_rat_ a l1 l2 base = 
+ 	if 0=a
+	then l1 l2
+	else if (a>0) 
+		then (poly_rat_ (a/base) (l1@[a mod base]) l2 base)
+	else poly	_rat (a*base) l1 (l2@[(a*base) mod base]) base;;
+*)
 (* ========================================================
  * Divise deux polynome, retourne le quotient et le reste
  * ========================================================*)
@@ -174,14 +190,15 @@ let poly_mod a b base=
 
 
 (* ========================================================
- * PGCD
+ * PGCD (EN TRAVAUX) TODO
  * ========================================================*)
- let rec pgcd a b base=
+ 
+(*let rec pgcd a b base=
  	match a with
- 	|[] -> b
+ 	|[] -> failtwith "liste vide"
  	|[0] -> b
  	|t::q -> pgcd (poly_mod b a base) a ;;
- 	 
+*)	 
 (* ========================================================
  * Zone de test
  * ========================================================*)
@@ -201,3 +218,4 @@ let divi=poly_div polyC polyD base;;
 let modu=poly_mod polyC polyD base;;
 let verif=poly_add (karatsuba polyD divi base) modu base;;
 let tet=pgcd [10] [5] 10;;
+
